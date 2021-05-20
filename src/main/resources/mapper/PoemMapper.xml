@@ -5,6 +5,8 @@
 
 <mapper namespace="work.darkforest.mapper.PoemMapper">
 
+    <cache type="work.darkforest.cache.RedisCache"/>
+
     <!-- 查询条数 -->
     <select id="count" resultType="integer">
         select count(*)

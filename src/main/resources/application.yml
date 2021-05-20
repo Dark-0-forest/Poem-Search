@@ -2,6 +2,11 @@ server:
   port: 8080
 
 spring:
+  # 配置redis
+  redis:
+    host: 81.68.192.48
+    port: 9721
+    password: Yn5AWuJ9e$EuadaC
 
   # druid数据源配置
   datasource:
