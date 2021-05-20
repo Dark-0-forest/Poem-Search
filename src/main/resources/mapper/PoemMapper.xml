@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="work.darkforest.mapper.PoemMapper">
+
+    <!-- 查询条数 -->
+    <select id="count" resultType="integer">
+        select count(*)
+        from `poem`
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="list" resultType="poem">
+        select id, poem_name, author, poem_type, poem_source, poem_content, author_des
+        from `poem`
+    </select>
+
+    <!-- 根据id查询 -->
+    <select id="findById" resultType="poem">
+        select id, poem_name, author, poem_type, poem_source, poem_content, author_des
+        from `poem`
+        where deleted = 0 and id = #{id};
+    </select>
+
+    <!-- 分页查询 -->
+    <select id="listByPage" resultType="poem">
+        select id, poem_name, author, poem_type, poem_source, poem_content, author_des
+        from `poem`
+        limit #{start},#{size};
+    </select>
+
+    <!-- 添加 -->
+    <insert id="add" parameterType="poem">
+        insert
+        into `poem`
+        values (#{id}, #{poemName}, #{author}, #{poemType}, #{poemSource}, #{poemContent}, #{authorDes}, 0, now(), now())
+    </insert>
+
+    <!-- 修改 -->
+    <update id="update" parameterType="poem">
+        update `poem`
+        set poem_name = #{poemName}, author = #{author}, poem_type = #{poemType}, poem_source = #{poemSource},
+            poem_content = #{poemContent}, author_des = #{authorDes}
+        where id = #{id};
+    </update>
+
+    <!-- 逻辑删除 -->
+    <update id="delById">
+        update `poem`
+        set deleted = 1
+        where id = #{id};
+    </update>
+
+    <!-- 逻辑恢复 -->
+    <update id="recovery">
+        update `poem`
+        set deleted = 0
+        where id = #{id};
+    </update>
+
+</mapper>
