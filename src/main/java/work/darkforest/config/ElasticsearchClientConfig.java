@@ -15,7 +15,7 @@ public class ElasticsearchClientConfig extends AbstractElasticsearchConfiguratio
     // 使用这个client来对es进行操作
     public RestHighLevelClient elasticsearchClient() {
         ClientConfiguration client = ClientConfiguration.builder()
-                .connectedTo("81.68.192.48:9200")
+                .connectedTo("xxx:xxx")
                 .build();
         return RestClients.create(client).rest();
     }
