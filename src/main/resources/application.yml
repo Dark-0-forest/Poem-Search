@@ -4,14 +4,14 @@ server:
 spring:
   # 配置redis
   redis:
-    host: 81.68.192.48
-    port: 9721
-    password: Yn5AWuJ9e$EuadaC
+    host: xxx
+    port: xxx
+    password: xxx
 
   # druid数据源配置
   datasource:
-    username: poem
-    password: 5m6AIfWGQw7R
+    username: xxx
+    password: xxx
     url: jdbc:mysql://www.darkforest.work:3306/poem?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
