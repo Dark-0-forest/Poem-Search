@@ -13,10 +13,17 @@
         from `poem`
     </select>
 
-    <!-- 查询所有 -->
+    <!-- 查询所有,包括删除的 -->
+    <select id="listAll" resultType="poem">
+        select id, poem_name, author, poem_type, poem_source, poem_content, author_des
+        from `poem`
+    </select>
+
+    <!-- 查询所有，不包括被删除的 -->
     <select id="list" resultType="poem">
         select id, poem_name, author, poem_type, poem_source, poem_content, author_des
         from `poem`
+        where deleted = 0;
     </select>
 
     <!-- 根据id查询 -->

@@ -13,7 +13,10 @@ public interface PoemMapper {
     // 查询总条数
     int count();
 
-    // 查询所有
+    // 查询所有,包括删除的
+    List<Poem> listAll();
+
+    // 查询所有，不包括被删除的
     List<Poem> list();
 
     // 根据id查询
